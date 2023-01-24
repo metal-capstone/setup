@@ -17,3 +17,8 @@ git clone https://github.com/metal-capstone/api.git
 cd setup
 docker compose up
 ```
+After that the API and React App should be running on localhost:3000 and localhost:8000. Press ctrl+c to stop the containers.
+
+## Development
+
+Run `docker compose up` in the setup folder to start the app and api after setup.
