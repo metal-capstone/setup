@@ -7,3 +7,8 @@ services:
       - ../api/:/api
     ports:
       - 8000:8000
+  app:
+    build:
+      context: ../app
+    ports:
+      - 3000:3000
