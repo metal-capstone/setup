@@ -5,5 +5,6 @@ cd spotify-chatbot
 git clone https://github.com/metal-capstone/setup.git
 git clone https://github.com/metal-capstone/app.git
 git clone https://github.com/metal-capstone/api.git
+cd setup
 docker compose up
 ```
