@@ -10,6 +10,8 @@ services:
   app:
     build:
       context: ../app
+    # volumes:
+    #   - ../app/:/app
     ports:
       - 3000:3000
       - 9229:9229
