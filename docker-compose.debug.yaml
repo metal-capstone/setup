@@ -2,14 +2,23 @@ version: "3"
 
 services:
   api:
-    command:
-    [
-      "sh",
-      "-c",
-      "pip3 install debugpy && python3 -m debugpy --wait-for-client --listen 0.0.0.0:5678 -m uvicorn api:app --reload --host 0.0.0.0 --port 8000",
-    ]
-    build: ./api
+    build:
+      context: "../api"
     volumes:
-      - ./api/:/api
+      - ../api/:/api
+    command:
+      [
+        "sh",
+        "-c",
+        "pip3 install debugpy && python3 -m debugpy --wait-for-client --listen 0.0.0.0:5678 -m uvicorn main:app --reload --host 0.0.0.0 --port 8000",
+      ]
     ports:
       - 8000:8000
+      - 5678:5678
+  app:
+    build:
+      context: ../app
+    # volumes:
+    #   - ../app/:/app
+    ports:
+      - 3000:3000
