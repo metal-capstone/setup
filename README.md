@@ -53,7 +53,7 @@ docker rm setup-app-1
 docker image rm setup-app
 ```
 
-After that navigate back to the setup folder and run `docker compose up` which will rebuild the image with the proper packages.
+After that navigate back to the setup folder and run `docker compose up` which will rebuild the image with the proper packages
 
 ### API (pip)
 
