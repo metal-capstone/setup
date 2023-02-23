@@ -30,6 +30,14 @@ After that the React App should be running on localhost:3000 and the API should 
 
 Make sure docker desktop is running and then run `docker compose up` in the setup folder to start the app and api after setup. Any saved changes should auto reload the app or api without needing a restart.
 
+## How to Debug API
+
+Make sure docker desktop is running. Open the `/setup` folder. Run `docker compose -f docker-compose.debug.yaml up`. Wait for docker compose to finish starting containers. Open the `/api` folder in vscode. Click the `Run and Debug` tab on the left drawer of vscode. Place breakpoints where you wan them in the api. Select `Python: Start and attach to API`. Click the green play button.
+
+## How to Debug APP
+
+Make sure docker desktop is running. Open the `/setup` folder. Run `docker compose up`. Wait for docker compose to finish starting containers. Open the `/app` folder in vscode. Click the `Run and Debug` tab on the left drawer of vscode. Place breakpoints where you wan them in the app. Select `Launch Chrome: React App Debugging`. Click the green play button.
+
 ## Adding packages
 
 When adding packages to either the app or api, you must rebuild the docker images or you will encounter issues when trying to use any new packages.
@@ -45,7 +53,7 @@ docker rm setup-app-1
 docker image rm setup-app
 ```
 
-After that navigate back to the setup folder and run `docker compose up` which will rebuild the image with the proper packages.
+After that navigate back to the setup folder and run `docker compose up` which will rebuild the image with the proper packages
 
 ### API (pip)
 
