@@ -65,3 +65,11 @@ docker image rm setup-api
 ```
 
 After that make sure you are in the setup folder and run `docker compose up` which will rebuild the image with the proper packages.
+
+### RASA
+Ensure the rasa server and actions server are both running by executing this post request on your host machine.
+```
+curl --location --request POST 'http://localhost:5005/webhooks/rest/webhook' \
+    --header 'Content-Type: text/plain' \
+    --data-raw '{"message":"faster."}'
+```
