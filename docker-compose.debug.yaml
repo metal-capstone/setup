@@ -15,6 +15,7 @@ services:
     ports:
       - 8000:8000
       - 5678:5678
+
   app:
     build:
       context: ../app
@@ -22,3 +23,23 @@ services:
     #   - ../app/:/app
     ports:
       - 3000:3000
+
+  rasa:
+    image: rasa/rasa:3.3.4-full
+    networks: ['rasa-network']
+    ports:
+    - 5005:5005
+    volumes:
+    - ../RASA-Training/:/app/
+    command: >
+      run --endpoints /app/endpoints-docker.yml
+
+  rasa-actions-server:
+    image: rasa/rasa-sdk:3.4.1
+    networks: ['rasa-network']
+    ports:
+    - 5055:5055
+    volumes:
+    - ../RASA-Training/actions:/app/actions
+
+networks: {rasa-network: {}}
