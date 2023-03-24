@@ -1,6 +1,7 @@
 version: "3"
 services:
   api:
+    networks: ['rasa-network']
     build:
       context: ../api
     volumes:
