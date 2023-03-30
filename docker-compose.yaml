@@ -31,8 +31,7 @@ services:
       run --endpoints /app/endpoints-docker.yml
 
   rasa-actions-server:
-    build:
-      context: ../RASA-Training/actions
+    image: rasa/rasa-sdk:3.4.1
     networks: ['rasa-network']
     ports:
     - 5055:5055
