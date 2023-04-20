@@ -1,7 +1,7 @@
 version: "3"
 services:
   api:
-    networks: ['rasa-network']
+    # networks: ['rasa-network']
     build:
       context: ../api
     volumes:
@@ -20,22 +20,22 @@ services:
     environment:
       - WATCHPACK_POLLING=true
 
-  rasa:
-    image: rasa/rasa:3.3.4-full
-    networks: ['rasa-network']
-    ports:
-    - 5005:5005
-    volumes:
-    - ../RASA-Training/:/app/
-    command: >
-      run --endpoints /app/endpoints-docker.yml
+#   rasa:
+#     image: rasa/rasa:3.3.4-full
+#     networks: ['rasa-network']
+#     ports:
+#     - 5005:5005
+#     volumes:
+#     - ../RASA-Training/:/app/
+#     command: >
+#       run --endpoints /app/endpoints-docker.yml
 
-  rasa-actions-server:
-    image: rasa/rasa-sdk:3.4.1
-    networks: ['rasa-network']
-    ports:
-    - 5055:5055
-    volumes:
-    - ../RASA-Training/actions:/app/actions
+#   rasa-actions-server:
+#     image: rasa/rasa-sdk:3.4.1
+#     networks: ['rasa-network']
+#     ports:
+#     - 5055:5055
+#     volumes:
+#     - ../RASA-Training/actions:/app/actions
 
-networks: {rasa-network: {}}
+# networks: {rasa-network: {}}
